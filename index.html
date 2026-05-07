@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nas's Fried Chicken (NFC)</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        .controls { margin-bottom: 20px; display: flex; gap: 10px; }
+        input[type="text"], input[type="text"].name-input { padding: 8px; border-radius: 4px; border: 1px solid #ccc; }
+        button { padding: 8px 16px; cursor: pointer; background: #e60000; color: white; border: none; border-radius: 4px; }
+        button:hover { background: #cc0000; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center; }
+        .loading { font-style: italic; color: #666; }
+        .error { color: red; background: #fee; padding: 10px; border-radius: 4px; }
+        .cart-section { margin-top: 40px; border-top: 2px solid #eee; padding-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🍗 Nas's Fried Chicken</h1>
+        <h3 id="cart-total">Total: $0.00</h3>
+    </div>
+
+    <!-- Advanced Features: Search and Filter -->
+    <div class="controls">
+        <input type="text" id="search-bar" placeholder="Search menu items..." onkeyup="fetchMenu()">
+        <button onclick="setCategory('All')">All</button>
+        <button onclick="setCategory('Spicy')">Spicy</button>
+        <button onclick="setCategory('Original')">Original</button>
+        <button onclick="setCategory('Sides')">Sides</button>
+    </div>
+
+    <div id="message-container"></div>
+    
+    <div id="menu-container" class="menu-grid">
+        <p class="loading">Loading menu...</p>
+    </div>
+
+    <!-- Checkout Form -->
+    <div class="cart-section">
+        <h2>Checkout</h2>
+        <input type="text" id="customer-name" class="name-input" placeholder="Enter your name">
+        <button onclick="submitOrder()" id="checkout-btn">Place Order</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
